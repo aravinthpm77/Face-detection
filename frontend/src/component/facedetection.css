@@ -1,0 +1,261 @@
+
+
+/* 🌟 Apple-Inspired Aesthetic */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "SF Pro Display", Arial, sans-serif;
+  background: linear-gradient(180deg, #f5f5f7, #e6e6ea);
+  color: #1d1d1f;
+  text-rendering: optimizeLegibility;
+  height:100vh;
+}
+
+/* 🔹 Full Page Layout */
+.container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+}
+
+.hero {
+  text-align: center;
+  padding: 100px 20px;
+  background: linear-gradient(180deg, #e6e6ea, #ffffff);
+}
+
+.hero h1 {
+  font-size: 50px;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.hero p {
+  font-size: 20px;
+  color: #555;
+  max-width: 700px;
+  margin: 0 auto 25px;
+  line-height: 1.6;
+}
+
+.hero ul {
+  
+  list-style: none;
+  padding: 0;
+  margin: 50px auto;
+  max-width: 1300px;
+  text-align: left;
+  display: flex;
+  background-color: #d6d6d6;
+  border-radius: 100px;
+  height: 50px;
+}
+
+.hero ul li {
+  font-size: 18px;
+  color: #444;
+  text-align: center;
+  place-items: center;
+  
+  padding-left: 30px;
+  width: 300px;
+  height: 50px;
+  margin-bottom: 10px;
+  display: flex;
+  
+}
+
+.hero .herobuttons .cta-button{
+  margin-left: 20px;
+  background: linear-gradient(135deg, #208ffe, #004581);
+  color: white;
+  border: none;
+  padding: 14px 24px;
+  margin-top: 15px;
+  cursor: pointer;
+  text-decoration: none;
+  border-radius: 30px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+
+}
+
+/* 🔹 Navigation Bar */
+.navbar {
+  background: rgba(255, 255, 255, 0.8);
+  padding: 20px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  backdrop-filter: blur(20px);
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid #d2d2d7;
+}
+
+.navbar h1 {
+  font-size: 28px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+
+.navbar .buttons .cta-button{
+  margin-left: 20px;
+  background: linear-gradient(135deg, #a9b1ba, #465a6b);
+  color: white;
+  border: none;
+  padding: 14px 24px;
+  margin-top: 15px;
+  cursor: pointer;
+  text-decoration: none;
+  border-radius: 10px;
+  font-size: 16px;
+  transition: all 0.7s ease-in-out;
+  text-align: center; 
+
+}
+
+.navbar .buttons .cta-button:hover{
+  background: linear-gradient(135deg, #7f858b, #272f36);
+  
+}
+
+
+/* 🔹 Buttons */
+.submit-button {
+  background: linear-gradient(135deg, #0071e3, #004b8d);
+  color: white;
+  border: none;
+  padding: 14px 24px;
+  margin-top: 15px;
+  cursor: pointer;
+  border-radius: 30px;
+  font-size: 16px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.submit-button:hover {
+  background: linear-gradient(135deg, #004b8d, #002d60);
+}
+
+/* 🔹 Main Content Layout */
+.main-content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  padding: 20px;
+}
+
+@media (min-width: 768px) {
+  .main-content {
+    flex-direction: row;
+    justify-content: space-around;
+  }
+}
+
+/* 🔹 Sections */
+.section {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  max-width: 500px;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 5px;
+  box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(15px);
+  transition: transform 0.3s ease;
+}
+
+.section h2 {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+/* 🔹 Image Upload */
+.upload-input {
+  display: block;
+  margin: 10px auto;
+  padding: 12px;
+  background: #e5e5ea;
+  color: #1d1d1f;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.upload-input:hover {
+  background: #d2d2d7;
+}
+
+/* 🔹 Image Preview */
+.uploaded-image {
+  width: 100%;
+  max-width: 200px;
+  height: fit-content;
+  border-radius: 12px;
+  margin-top: 15px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* 🔹 Result Card */
+.result-card {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 20px;
+  border-radius: 12px;
+  margin-top: 20px;
+  text-align: center;
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+.result-card p {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 6px 0;
+}
+
+
+.submit-button {
+  padding: 12px 20px;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  background: #ff6600;
+  color: white;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 150px;
+}
+
+.submit-button:disabled {
+  background: gray;
+  cursor: not-allowed;
+}
+
+.loader {
+  width: 18px;
+  height: 18px;
+  border: 3px solid white;
+  border-top: 3px solid transparent;
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

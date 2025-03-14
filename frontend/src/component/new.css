@@ -1,0 +1,175 @@
+/* 🌟 General Styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "SF Pro Display", Arial, sans-serif;
+    background-color: #0a0a0a;
+    color: white;
+    text-rendering: optimizeLegibility;
+  }
+  
+  /* 🔹 Full Page Layout */
+  .container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #131313e9;
+  }
+  
+  /* 🔹 Navigation Bar */
+  .navbar {
+    background: rgba(20, 20, 20, 0.8);
+    padding: 20px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    backdrop-filter: blur(10px);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+  }
+  
+  .navbar h1 {
+    font-size: 26px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+  }
+  
+  /* 🔹 Button */
+  .nav-button {
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    color: white;
+    border: none;
+    padding: 12px 18px;
+    margin: 0 5px;
+    cursor: pointer;
+    border-radius: 30px;
+    font-size: 16px;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .nav-button:hover {
+    background: linear-gradient(135deg, #0056b3, #003d80);
+    
+  }
+  
+  /* 🔹 Main Content Layout */
+  .main-content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+  }
+  
+  @media (min-width: 768px) {
+    .main-content {
+      flex-direction: row;
+      justify-content: space-around;
+    }
+  }
+  
+  /* 🔹 Sections */
+  .section {
+    top:10px;
+    display: grid;
+    width: 90%;
+    max-width: 480px;
+    text-align: center;
+    align-items: center;
+    justify-items: center;
+    padding: 30px;
+    background: rgba(21, 21, 21, 0.5);
+    border-radius: 10px;
+    box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(15px);
+    transition: transform 0.3s ease;
+  }
+  
+  
+  .section h2 {
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 12px;
+  }
+  
+  /* 🔹 Image Upload */
+  .upload-input {
+    display: block;
+    margin: 10px auto;
+    padding: 12px;
+    background: #1a1a1a;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+  }
+  
+  .upload-input:hover {
+    background: #292929;
+  }
+  
+  /* 🔹 Image Preview */
+  .uploaded-image {
+    width: 100%;
+  
+    max-width: 200px;
+    height:fit-content;
+    border-radius: 12px;
+    margin-top: 15px;
+    box-shadow: 0px 4px 12px rgba(255, 255, 255, 0.1);
+  }
+  
+  /* 🔹 Webcam */
+  .webcam {
+    width: 100%;
+    max-width: 420px;
+    height: auto;
+    border: 4px solid rgba(0, 123, 255, 0.6);
+    border-radius: 14px;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .webcam:hover {
+    border-color: rgba(0, 123, 255, 0.9);
+   
+  }
+  
+  /* 🔹 Submit Button */
+  .submit-button {
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    color: white;
+    border: none;
+    padding: 14px 24px;
+    margin-top: 15px;
+    cursor: pointer;
+    border-radius: 30px;
+    font-size: 16px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+  }
+  
+  .submit-button:hover {
+    background: linear-gradient(135deg, #0056b3, #003d80);
+    
+  }
+  
+  /* 🔹 Result Card */
+  .result-card {
+    background: rgba(40, 40, 40, 0.8);
+    padding: 20px;
+    border-radius: 12px;
+    margin-top: 20px;
+    text-align: center;
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.4);
+  
+  }
+  
+  .result-card p {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 6px 0;
+  }
+  
+  
