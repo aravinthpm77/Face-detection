@@ -43,9 +43,10 @@ function Analyze() {
     const [videoResults, setVideoResults] = useState(null);
     const [loading, setLoading] = useState(false);
     const [videoLoading, setVideoLoading] = useState(false);
-
+    const [pdfUrl, setPdfUrl] = useState(null);
     console.log(videoResults);
-
+    
+    console.log(pdfUrl,"url");
     const handleImageUpload = (event) => {
       const file = event.target.files[0];
       if (file) {
@@ -72,7 +73,7 @@ function Analyze() {
 
       setLoading(true); // Show loading animation
       setResults(null);
-
+      setPdfUrl(null);
       const formData = new FormData();
       formData.append("file", imageFile);
 
@@ -98,12 +99,46 @@ function Analyze() {
         const response = await axios.post("http://127.0.0.1:5000/video_analysis");
         setTimeout(() => {
           setVideoResults(response.data);
+          setPdfUrl(response.data.Report);
           setVideoLoading(false);
-        }, 2500);
+        }, 2000);
         
       } catch (error) {
         console.error("Error analyzing video:", error);
         setVideoLoading(false);
+      }
+    };
+
+    const downloadReport = async () => {
+      if (!pdfUrl) {
+        console.error("No PDF URL available");
+        return;
+      }
+    
+      try {
+        const response = await fetch("http://127.0.0.1:5000/download", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ pdfUrl }),
+        });
+    
+        if (!response.ok) {
+          console.error("Error downloading file");
+          return;
+        }
+    
+        // Convert response into blob and create a download link
+        const blob = await response.blob();
+        const blobUrl = window.URL.createObjectURL(blob);
+        
+        const link = document.createElement("a");
+        link.href = blobUrl;
+        link.setAttribute("download", pdfUrl.split("/").pop()); // Extract filename from URL
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      } catch (error) {
+        console.error("Error downloading file:", error);
       }
     };
 
@@ -113,7 +148,7 @@ function Analyze() {
       "Keep up the positive energy!",
       "Great posture and expression!",
     ];
-
+    
     const emotionLabels = ["Angry", "Disgust", "Fear", "Happy", "Neutral", "Sad", "Surprise"];
     return (
       <div className="container">
@@ -189,6 +224,11 @@ function Analyze() {
                 </CardContent>
               </Card>
 
+              {pdfUrl && (
+                <div className="section">
+                  <button className="submit-button" onClick={downloadReport}>Download Report</button>
+                </div>
+              )}
               
 
               <div className="section">

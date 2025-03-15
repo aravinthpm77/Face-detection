@@ -3,6 +3,7 @@ from flask_cors import CORS
 import os
 from testing import analyze_image  # Import the function from testing.py
 from utkface_analysis import analyze_video  # Import video analysis function
+from flask import Flask, request, send_from_directory, jsonify
 
 app = Flask(__name__)
 CORS(app)
@@ -12,7 +13,25 @@ if not os.path.exists(UPLOAD_FOLDER):
     os.makedirs(UPLOAD_FOLDER)
 
 app.config["UPLOAD_FOLDER"] = UPLOAD_FOLDER
+REPORTS_FOLDER = os.path.join(os.getcwd(), "reports")
 
+@app.route('/download', methods=['POST'])
+def download_file():
+    data = request.json
+    pdf_url = data.get("pdfUrl")  # Get pdfUrl from request body
+
+    if not pdf_url:
+        return jsonify({"error": "pdfUrl is required"}), 400
+    
+    filename = os.path.basename(pdf_url)  # Extract filename from pdfUrl
+    file_path = os.path.join(REPORTS_FOLDER, filename)
+
+    if os.path.exists(file_path):
+        return send_from_directory(REPORTS_FOLDER, filename, as_attachment=True)
+    else:
+        return jsonify({"error": "File not found"}), 404
+    
+    
 @app.route("/upload", methods=["POST"])
 def upload_image():
     if "file" not in request.files:
