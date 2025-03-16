@@ -6,29 +6,59 @@ import { Card, CardContent } from "./card";
 import { LineChart, BarChart, Bar, Line, XAxis, YAxis, Tooltip, ResponsiveContainer } from "recharts";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import "./facedetection.css";
-
+import ScrollReveal from "scrollreveal";
 
 function Home() {
+  
   return (
-    <div className="hero">
-      <div className="hero-content">
-        <h1>Face Analysis using UTKFace</h1>
-        <p className="subheading">
-        Unlock deep insights into facial expressions, emotions, and identity using cutting-edge AI.
-        </p>
+    <div className="container">
+      <header>
+          <nav>
+              <h1 class="logo">FACDetect</h1>
+              <ul class="nav-links">
+                  <li><a href="#">Home</a></li>
+                  <li><a href="#">About</a></li>
+                  <li><a href="#">Services</a></li>
+                  <li><a href="#">Contact</a></li>
+              </ul>
+          </nav>
+      </header>
+      <section class="hero">
+        <div class="hero-content">
+            <h1>Face Analysis using UTKFace</h1>
+            <p className="subheading">
+            Unlock deep insights into facial expressions, emotions, and identity using cutting-edge AI.
+            </p>
 
-        <ul className="features">
-          <li>Advanced Face Detection</li>
-          <li>Emotion & Sentiment Analysis</li>
-          <li>Identity & Age Estimation</li>
-          <li>Real-time & Secure Processing</li>
-        </ul>
+            <ul className="features">
+              <li>Advanced Face Detection</li>
+              <li>Emotion & Sentiment Analysis</li>
+              <li>Identity & Age Estimation</li>
+              <li>Real-time & Secure Processing</li>
+            </ul>
 
-        <div className="herobuttons">
-          <Link to="/analyze" className="cta-button">Get Started</Link>
-          <Link to="/about" className="cta-button">Learn More</Link>
+            <div className="herobuttons">
+              <Link to="/analyze" className="cta-button">Get Started</Link>
+              <Link to="/about" className="cta-button">Learn More</Link>
+            </div>
         </div>
-      </div>
+        <div class="wave"></div>
+    </section>
+    <section class="features">
+        <div class="feature">
+            <h2>Advanced Face Detection</h2>
+            <p>Enhanced Dataset for Advanced Face Detection.</p>
+        </div>
+        <div class="feature">
+            <h2>Emotion & Sentiment Analysis</h2>
+            <p>Real-time & Secure Processing with sentiment analysis using the texture recogination.</p>
+        </div>
+        <div class="feature">
+            <h2>Identity & Age Estimation</h2>
+            <p>Age Estimation using the CNN models and CV .</p>
+        </div>
+    </section>
+      
     </div>
   );
 }
@@ -153,7 +183,7 @@ function Analyze() {
     return (
       <div className="container">
         <nav className="navbar">
-          <h1>Face Analysis</h1>
+          <h1>FACDetect</h1>
           <div className="buttons">
             <Link to="/analyze" className="cta-button">Get Started</Link>
             <Link to="/" className="cta-button">Home</Link>

@@ -64,14 +64,16 @@ def generate_report(data):
     pdf.set_auto_page_break(auto=True, margin=15)
     pdf.add_page()
     pdf.set_font("Arial", "B", 16)
-    pdf.cell(200, 10, "Face Analysis Report", ln=True, align="C")
+    pdf.set_fill_color(230, 230, 230)  # Light gray background
+    pdf.cell(200, 10, "Face Analysis Report", ln=True, align="C", fill=True)
     pdf.ln(10)
     pdf.set_line_width(0.5)
-    pdf.line(10, pdf.get_y(), 200, pdf.get_y())
-    pdf.ln(10)
+    
+    
     
     pdf.set_font("Arial", "B", 12)
-    pdf.cell(0, 10, "User Information", ln=True, align="L", border=1)
+    pdf.set_fill_color(180, 180, 255)  # Light blue for headers
+    pdf.cell(0, 10, "User Information", ln=True, align="L", border=1, fill=True)
     pdf.ln(5)
     
     pdf.set_font("Arial", "", 12)
@@ -89,31 +91,34 @@ def generate_report(data):
         pdf.set_font("Arial", "", 12)
         pdf.cell(0, 10, value, ln=True)
     
-    pdf.ln(5)
-
-    # Emotion Probabilities Table
-    pdf.set_font("Arial", "B", 12)
-    pdf.cell(0, 10, "Emotion Probabilities", ln=True, align="L", border=1)
     
+
+    # Emotion Probabilities Table with alternating row colors
     pdf.set_font("Arial", "B", 12)
-    pdf.cell(90, 10, "Emotion", border=1, align="C")
-    pdf.cell(90, 10, "Probability (%)", border=1, align="C", ln=True)
+    pdf.cell(0, 10, "Emotion Probabilities", ln=True, align="L", border=1, fill=True)
+    
+    pdf.set_fill_color(100, 150, 255)  # Darker blue for header
+    pdf.set_font("Arial", "B", 12)
+    pdf.cell(90, 10, "Emotion", border=1, align="C", fill=True)
+    pdf.cell(90, 10, "Probability (%)", border=1, align="C", ln=True, fill=True)
     
     pdf.set_font("Arial", "", 12)
+    alternate = False
     for emo, prob in zip(emotion_labels, data["Emotion_Probabilities"]):
-        pdf.cell(90, 10, emo, border=1, align="C")
-        pdf.cell(90, 10, f"{prob:.2f}%", border=1, align="C", ln=True)
+        pdf.set_fill_color(220, 230, 255) if alternate else pdf.set_fill_color(255, 255, 255)
+        alternate = not alternate  # Toggle row color
+        pdf.cell(90, 10, emo, border=1, align="C", fill=True)
+        pdf.cell(90, 10, f"{prob:.2f}%", border=1, align="C", ln=True, fill=True)
     
     pdf.ln(10)
+    pdf.line(10, pdf.get_y(), 200, pdf.get_y())
     
-    
-    
-    
-    
+    # Add Image within the same page
     if os.path.exists(data["Snapshot"]):
         pdf.ln(10)
-        pdf.image(data["Snapshot"], x=10, y=pdf.get_y(), w=100)
-    
+        pdf.image(data["Snapshot"], x=35, y=pdf.get_y(), w=80, h=80)  # Resizing and centering
+
+    # Footer
     pdf.set_y(-15)
     pdf.set_font("Arial", "I", 10)
     pdf.cell(0, 10, f"Page {pdf.page_no()}", align="C")
@@ -121,6 +126,7 @@ def generate_report(data):
     pdf.output(report_filename)
     print(f"Report generated: {report_filename}")
     return report_filename
+
 
 
 # 🛠 **Preprocessing Functions**
