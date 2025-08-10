@@ -64,8 +64,6 @@ For each detected face, the system will:
 ## Contributing
 Feel free to contribute by improving the model accuracy, adding new features, or optimizing performance. Create a pull request with your modifications.
 
-## License
-This project is open-source and available under the MIT License.
 
 ## Contact
 For any issues or feature requests, please open an issue in the repository or contact via GitHub or Linkedin.
